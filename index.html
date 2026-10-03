@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Zedapex</title>
+<meta name="description" content="Zedapex is an award-winning performance marketing and media buying agency for iGaming and finance. Thousands of FTDs every month.">
+<meta property="og:title" content="Zedapex · Performance marketing for iGaming and finance">
+<meta property="og:description" content="We buy traffic that pays. Thousands of FTDs every month, and the tools media buyers run on.">
+<meta property="og:image" content="assets/og.png">
+<meta name="theme-color" content="#050505">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: black stage, oversized condensed type, live "traffic in → quality out" canvas in the hero, a partner-growth story that draws itself, then short loud bands. Single dark look by design. */
+:root{
+  --ink:#050505; --ink-2:#0e0e0e; --ink-3:#171717; --line:#262626;
+  --paper:#f4f4f2; --dim:#a3a3a0; --faint:#6b6b68; --up:#3ddc84;
+  --display:"Archivo","Arial Narrow",Impact,sans-serif;
+  --body:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --gut:clamp(16px,4vw,40px); --max:1240px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--ink)}
+body{margin:0;background:var(--ink);color:var(--paper);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--gut)}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+:focus-visible{outline:2px solid var(--paper);outline-offset:3px;border-radius:4px}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(5,5,5,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
+.nav.scrolled{border-bottom-color:var(--line)}
+.nav-in{display:flex;align-items:center;gap:24px;height:68px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:34px;height:34px}
+.brand b{font-family:var(--display);font-weight:800;font-stretch:118%;font-size:20px;letter-spacing:.08em}
+.links{display:flex;gap:4px;margin-left:auto}
+.links a{font-size:14.5px;font-weight:500;color:var(--dim);text-decoration:none;padding:8px 12px;border-radius:999px;transition:color .2s,background .2s}
+.links a:hover{color:var(--paper);background:var(--ink-3)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--body);font-weight:600;font-size:15px;text-decoration:none;border-radius:999px;padding:13px 22px;border:1px solid var(--paper);cursor:pointer;transition:transform .2s,background .2s,color .2s;white-space:nowrap;background:transparent;color:var(--paper)}
+.btn:hover{transform:translateY(-2px)}
+.btn.solid{background:var(--paper);color:var(--ink)}
+.btn.ghost{border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--paper)}
+.btn svg{width:16px;height:16px}
+.nav .btn{padding:10px 18px;font-size:14px}
+.menu-b{display:none;margin-left:auto;background:none;border:1px solid var(--line);color:var(--paper);border-radius:999px;width:42px;height:42px;cursor:pointer}
+@media(max-width:900px){.links,.nav .btn{display:none}.menu-b{display:grid;place-items:center}
+  .nav.open .links{display:flex;position:absolute;left:0;right:0;top:68px;flex-direction:column;background:var(--ink);border-bottom:1px solid var(--line);padding:12px var(--gut) 20px}
+  .nav.open .links a{font-size:18px;padding:12px 0;color:var(--paper)}}
+
+/* hero */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+#flow{position:absolute;inset:0;width:100%;height:100%;opacity:.9}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 45%,transparent 30%,var(--ink) 92%);pointer-events:none}
+.hero-in{position:relative;z-index:2;padding-block:clamp(28px,5vw,72px) clamp(40px,6vw,80px);display:grid;gap:20px;justify-items:center;text-align:center}
+.seal{width:clamp(76px,9vw,112px);aspect-ratio:1;position:relative;display:grid;place-items:center}
+.seal img{width:62%;filter:drop-shadow(0 0 28px rgba(255,255,255,.35));animation:float 6s ease-in-out infinite}
+.seal svg{position:absolute;inset:0;width:100%;height:100%;animation:spin 26s linear infinite}
+.seal text{font-family:var(--mono);font-size:7.2px;letter-spacing:2.4px;fill:#a3a3a0}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.award{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:6px 14px 6px 8px;font-size:13.5px;font-weight:500;background:rgba(14,14,14,.7)}
+.award svg{width:22px;height:22px}
+h1{margin:0;font-family:var(--display);font-weight:900;font-stretch:72%;text-transform:uppercase;line-height:.86;letter-spacing:-.01em;font-size:clamp(52px,min(10.5vw,12.5vh),136px);text-wrap:balance}
+h1 .swap{display:inline-grid;vertical-align:bottom;overflow:hidden;height:.88em;grid-template-columns:minmax(0,1fr);justify-items:start;transition:width .7s cubic-bezier(.7,0,.2,1)}
+h1 .swap span{width:max-content;white-space:nowrap}
+h1 .swap span{grid-area:1/1;transform:translateY(105%);transition:transform .7s cubic-bezier(.7,0,.2,1)}
+h1 .swap span.on{transform:none}
+h1 .swap span.out{transform:translateY(-105%)}
+.lead{margin:0;max-width:640px;color:var(--dim);font-size:clamp(17px,1.6vw,19px)}
+.lead b{color:var(--paper);font-weight:600}
+.cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+
+.toolrow{display:grid;gap:10px;justify-items:center}
+@media(max-width:700px),(max-height:1000px){.seal{display:none}}
+.toolchips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.toolchips a{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:rgba(14,14,14,.75);border-radius:999px;padding:5px 12px 5px 5px;font-size:13.5px;font-weight:600;text-decoration:none;transition:border-color .2s,transform .2s;animation:chipIn .6s cubic-bezier(.2,.8,.2,1) both}
+.toolchips a:hover{border-color:var(--paper);transform:translateY(-2px)}
+.toolchips img{width:24px;height:24px;border-radius:7px}
+@keyframes chipIn{from{opacity:0;transform:translateY(8px)}}
+/* marquee */
+.marq{overflow:hidden;border-bottom:1px solid var(--line)}
+.marq-in{display:flex;width:max-content;animation:marq 38s linear infinite}
+.marq span{font-family:var(--display);font-weight:800;font-stretch:110%;font-size:clamp(18px,2.2vw,26px);text-transform:uppercase;letter-spacing:.04em;padding:18px 28px 18px 0;white-space:nowrap;display:flex;align-items:center;gap:28px}
+.marq span i{width:9px;height:9px;background:var(--paper);transform:rotate(45deg);display:inline-block;flex:none}
+.marq span:nth-child(even){color:transparent;-webkit-text-stroke:1px var(--paper)}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* proof */
+.proof{border-bottom:1px solid var(--line)}
+.proof-in{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.proof-in>div{display:grid;gap:6px;align-content:start;padding:28px 16px 28px 0;min-width:0}
+.proof-in>div+div{border-left:1px solid var(--line);padding-left:clamp(14px,2vw,24px)}
+.proof b{font-family:var(--display);font-weight:900;font-stretch:72%;font-size:clamp(30px,4.1vw,56px);line-height:.9;font-variant-numeric:tabular-nums}
+.proof b small{font-size:.5em;vertical-align:.7em;margin-left:2px}
+@media(max-width:860px){.proof-in{grid-template-columns:1fr 1fr}.proof-in>div:nth-child(3){border-left:0;padding-left:0}.proof-in>div:nth-child(n+3){border-top:1px solid var(--line)}}@media(max-width:480px){.proof-in{grid-template-columns:1fr}.proof-in>div+div{border-left:0;padding-left:0;border-top:1px solid var(--line)}}
+
+/* sections */
+section{padding-block:clamp(72px,10vw,128px);overflow-x:clip}
+.head{display:grid;gap:14px;margin-bottom:clamp(36px,5vw,56px);max-width:1100px}
+h2{margin:0;font-family:var(--display);font-weight:900;font-stretch:78%;text-transform:uppercase;line-height:.9;font-size:clamp(44px,7.5vw,96px);letter-spacing:-.005em;text-wrap:balance}
+.outline{color:transparent;-webkit-text-stroke:1.5px var(--paper)}
+.head p{margin:0;color:var(--dim);max-width:600px}
+
+/* partner story */
+.story{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:stretch}
+.chart{position:relative;border:1px solid var(--line);border-radius:28px;background:var(--ink-2);padding:clamp(18px,3vw,28px);display:grid;gap:14px;min-width:0}
+.chart-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.legend{display:flex;gap:16px;flex-wrap:wrap}
+.legend span{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--dim)}
+.legend i{width:18px;height:3px;border-radius:2px;background:var(--paper)}
+.legend i.f{background:var(--up)}
+.replay{background:none;border:1px solid var(--line);color:var(--paper);border-radius:999px;padding:7px 14px;font:inherit;font-size:13px;cursor:pointer}
+.replay:hover{border-color:var(--paper)}
+.chart svg{width:100%;height:auto;display:block;overflow:visible}
+.chart .grid line{stroke:#1f1f1f}
+.chart .ax{font-family:var(--mono);font-size:10px;fill:#6b6b68;letter-spacing:.06em}
+.chart .reg{fill:none;stroke:#f4f4f2;stroke-width:3;stroke-linecap:round}
+.chart .ftd{fill:none;stroke:#3ddc84;stroke-width:3;stroke-linecap:round}
+.chart .area{fill:url(#ga);opacity:.9}
+.chart .before{fill:none;stroke:#3a3a38;stroke-width:3;stroke-dasharray:4 7;stroke-linecap:round}
+.chart .marker line{stroke:#f4f4f2;stroke-dasharray:3 5}
+.chart .marker text{font-family:var(--mono);font-size:10.5px;fill:#f4f4f2;letter-spacing:.1em}
+.chart .dot{fill:#050505;stroke-width:3}
+.mile{opacity:0;transition:opacity .5s,transform .5s;transform:translateY(6px)}
+.mile.on{opacity:1;transform:none}
+.mile rect{fill:#171717;stroke:#2e2e2e}
+.mile text{font-family:var(--body);font-size:11.5px;fill:#f4f4f2;font-weight:600}
+.powers{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pw{border:1px solid var(--line);border-radius:18px;padding:16px;display:grid;gap:2px;align-content:start;min-width:0}
+.pw .mono{margin-bottom:8px;font-size:11px}
+.pw b{font-family:var(--display);font-weight:900;font-stretch:78%;font-size:clamp(32px,3.8vw,52px);line-height:1;font-variant-numeric:tabular-nums}
+.pw b.sm{font-size:clamp(22px,2.4vw,32px);margin-top:12px}
+.pw>span:not(.mono){font-size:13.5px;color:var(--dim)}
+.pw.net{border-color:rgba(61,220,132,.45);background:linear-gradient(160deg,rgba(61,220,132,.10),transparent 70%)}
+.pw.net b{color:var(--up)}
+@media(max-width:420px){.powers{grid-template-columns:1fr}}
+.counters{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.counters div{border-top:1px solid var(--line);padding-top:12px;display:grid;gap:2px}
+.counters b{font-family:var(--display);font-weight:900;font-stretch:80%;font-size:clamp(34px,4vw,52px);line-height:1;font-variant-numeric:tabular-nums}
+.counters b.g{color:var(--up)}
+.counters span{font-size:13.5px;color:var(--dim)}
+.note{margin:0;font-size:12.5px;color:var(--faint)}
+.beats{display:grid;gap:0;border-top:1px solid var(--line);align-content:start}
+.beat{display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;padding:20px 0;border-bottom:1px solid var(--line);opacity:.35;transition:opacity .5s}
+.beat.on{opacity:1}
+.beat .n{width:44px;height:44px;border:1px solid var(--line);border-radius:12px;display:grid;place-items:center;font-family:var(--mono);font-size:12px;transition:background .4s,color .4s,border-color .4s}
+.beat.on .n{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.beat b{display:block;font-family:var(--display);font-weight:800;font-size:22px;text-transform:uppercase;font-stretch:96%}
+.beat p{margin:4px 0 0;color:var(--dim);font-size:15px}
+@media(max-width:960px){.story{grid-template-columns:1fr}}
+
+/* easier money band */
+.flowband{border-block:1px solid var(--line);position:relative;overflow:hidden}
+.flowband .wrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+.fb{padding:34px 24px 34px 0;display:grid;gap:10px;position:relative}
+.fb+.fb{border-left:1px solid var(--line);padding-left:24px}
+.fb .mono{color:var(--faint)}
+.fb b{font-family:var(--display);font-weight:900;font-stretch:80%;font-size:clamp(28px,3vw,40px);text-transform:uppercase;line-height:.95}
+.fb p{margin:0;color:var(--dim);font-size:15px}
+.fb .meter{height:6px;border-radius:6px;background:var(--ink-3);overflow:hidden;margin-top:6px}
+.fb .meter i{display:block;height:100%;width:var(--w);background:linear-gradient(90deg,#6b6b68,var(--paper));border-radius:6px;transform-origin:left;transform:scaleX(0);transition:transform 1.6s cubic-bezier(.2,.8,.2,1)}
+.flowband.go .meter i{transform:scaleX(1)}
+.fb:nth-child(2) .meter i{transition-delay:.25s}.fb:nth-child(3) .meter i{transition-delay:.5s;background:linear-gradient(90deg,#1f6f45,var(--up))}
+@media(max-width:860px){.flowband .wrap{grid-template-columns:1fr}.fb+.fb{border-left:0;padding-left:0;border-top:1px solid var(--line)}}
+
+/* agency */
+.verts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--line);border-radius:28px;overflow:hidden}
+.vert{padding:clamp(24px,3vw,36px);display:grid;gap:16px;align-content:start;min-height:300px;background:var(--ink);transition:background .35s}
+.vert+.vert{border-left:1px solid var(--line)}
+.vert:hover{background:var(--ink-2)}
+.vert .ic{width:56px;height:56px;border:1px solid var(--line);border-radius:16px;display:grid;place-items:center}
+.vert .ic svg{width:28px;height:28px}
+.vert h3{margin:0;font-family:var(--display);font-weight:800;font-size:28px;text-transform:uppercase}
+.vert p{margin:0;color:var(--dim);font-size:15.5px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.tags span{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:5px 10px;color:var(--dim)}
+@media(max-width:900px){.verts{grid-template-columns:1fr}.vert+.vert{border-left:0;border-top:1px solid var(--line)}.vert{min-height:0}}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:clamp(36px,5vw,56px)}
+.step{border-top:2px solid var(--line);padding-top:18px;display:grid;gap:8px;position:relative}
+.step::before{content:"";position:absolute;top:-2px;left:0;height:2px;width:0;background:var(--paper);transition:width 1.2s cubic-bezier(.7,0,.2,1)}
+.steps.go .step::before{width:100%}
+.steps.go .step:nth-child(2)::before{transition-delay:.25s}.steps.go .step:nth-child(3)::before{transition-delay:.5s}.steps.go .step:nth-child(4)::before{transition-delay:.75s}
+.step b{font-family:var(--display);font-weight:800;font-size:24px;text-transform:uppercase}
+.step p{margin:0;color:var(--dim);font-size:15px}
+@media(max-width:900px){.steps{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:28px}}
+@media(max-width:480px){.steps{grid-template-columns:1fr}}
+
+/* statement */
+.state{border-block:1px solid var(--line);padding-block:clamp(64px,9vw,120px);text-align:center}
+.state p{margin:0;font-family:var(--display);font-weight:900;font-stretch:66%;text-transform:uppercase;line-height:.84;font-size:clamp(64px,16vw,230px)}
+.state p span{display:block}
+.state p span:nth-child(2){color:transparent;-webkit-text-stroke:2px var(--paper)}
+.state small{display:block;margin-top:26px}
+
+/* products */
+.prods{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.prod{position:relative;display:grid;gap:14px;align-content:start;padding:24px;border:1px solid var(--line);border-radius:24px;text-decoration:none;background:var(--ink);overflow:hidden;transition:transform .3s,border-color .3s;min-height:210px}
+.prod:hover{transform:translateY(-4px);border-color:var(--faint)}
+.prod::after{content:"";position:absolute;inset:auto -30% -60% auto;width:220px;height:220px;border-radius:50%;background:var(--glow,#fff);opacity:0;filter:blur(60px);transition:opacity .4s}
+.prod:hover::after{opacity:.22}
+.prod .top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.prod img{width:48px;height:48px;border-radius:13px}
+.badge{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:5px 9px;border:1px solid var(--line);color:var(--dim);white-space:nowrap}
+.badge.live{border-color:var(--paper);color:var(--paper)}
+.badge.live::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--up);margin-right:6px;vertical-align:1px;animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.25}}
+.prod h3{margin:0;font-family:var(--display);font-weight:800;font-size:24px}
+.prod p{margin:0;color:var(--dim);font-size:14.5px}
+.prod .go{margin-top:auto;font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px}
+.prod .go svg{width:14px;height:14px;transition:transform .25s}
+.prod:hover .go svg{transform:translateX(4px)}
+.prod.hub{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.prod.hub p,.prod.hub .badge{color:#3a3a38;border-color:#cfcfcb}
+@media(max-width:1000px){.prods{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.prods{grid-template-columns:1fr}}
+
+/* voosquare */
+.vs{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center}
+.vs ul{list-style:none;margin:28px 0 32px;padding:0;display:grid;gap:14px}
+.vs li{display:flex;gap:14px;align-items:flex-start;color:var(--dim)}
+.vs li b{color:var(--paper);font-weight:600}
+.vs li i{flex:none;width:22px;height:22px;border:1px solid var(--paper);border-radius:6px;display:grid;place-items:center;margin-top:2px}
+.vs li i::after{content:"";width:8px;height:8px;background:var(--paper);border-radius:2px}
+.orbit{position:relative;aspect-ratio:1;width:calc(100% - 48px);max-width:440px;justify-self:center;margin:24px}
+.orbit .ring{position:absolute;inset:0;border:1px dashed var(--line);border-radius:50%}
+.orbit .ring.r2{inset:17%}
+.orbit .core{position:absolute;inset:34%;display:grid;place-items:center}
+.orbit .core img{width:100%;border-radius:26%;box-shadow:0 0 80px rgba(25,196,130,.25)}
+.sat{position:absolute;inset:0;animation:spin 40s linear infinite}
+.sat.r2{inset:17%;animation-duration:28s;animation-direction:reverse}
+.sat img{position:absolute;width:13%;min-width:38px;border-radius:12px;transform:translate(-50%,-50%);animation:spin 40s linear infinite reverse;box-shadow:0 8px 24px rgba(0,0,0,.6)}
+.sat.r2 img{width:16%;animation:spin 28s linear infinite}
+@media(max-width:900px){.vs{grid-template-columns:1fr}}
+
+/* connect */
+.conn{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(28px,5vw,64px)}
+.routes{display:grid;gap:10px;margin-top:28px}
+.route{display:flex;align-items:center;gap:14px;border:1px solid var(--line);border-radius:18px;padding:16px 18px;text-decoration:none;transition:border-color .2s,background .2s}
+.route:hover{border-color:var(--paper);background:var(--ink-2)}
+.route b{display:block;font-weight:600}
+.route small{color:var(--dim);font-size:14px}
+.route .r{margin-left:auto;flex:none}
+.route svg{width:20px;height:20px}
+form{display:grid;gap:14px;border:1px solid var(--line);border-radius:28px;padding:clamp(20px,3vw,32px);background:var(--ink-2)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label{display:grid;gap:7px;font-size:13px;color:var(--dim);font-weight:500}
+input,select,textarea{font:inherit;font-size:16px;color:var(--paper);background:var(--ink);border:1px solid var(--line);border-radius:14px;padding:13px 14px;width:100%;min-width:0;transition:border-color .2s}
+textarea{min-height:110px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--paper)}
+.seg{display:flex;flex-wrap:wrap;gap:8px;position:relative}
+.seg input{position:absolute;left:0;top:0;width:1px;height:1px;opacity:0;pointer-events:none}
+.seg label{display:inline-flex;cursor:pointer;border:1px solid var(--line);border-radius:999px;padding:9px 14px;color:var(--paper);font-size:14px}
+.seg input:checked+label{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.seg input:focus-visible+label{outline:2px solid var(--paper);outline-offset:2px}
+.ok{display:none;border:1px solid var(--paper);border-radius:16px;padding:14px 16px;font-size:15px}
+.ok.show{display:block}
+@media(max-width:900px){.conn{grid-template-columns:1fr}}
+@media(max-width:520px){.row{grid-template-columns:1fr}}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding-block:40px 32px}
+.foot{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+.foot nav{display:flex;flex-wrap:wrap;gap:6px 18px}
+.foot nav a{color:var(--dim);text-decoration:none;font-size:14px}
+.foot nav a:hover{color:var(--paper)}
+.giant{font-family:var(--display);font-weight:900;font-stretch:125%;text-transform:uppercase;font-size:clamp(56px,17vw,250px);line-height:.8;letter-spacing:-.02em;margin:40px 0 10px;color:transparent;-webkit-text-stroke:1px #333;user-select:none;white-space:nowrap;overflow:hidden}
+
+.rise{opacity:1;transform:none;transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1)}
+.js .rise.pre{opacity:0;transform:translateY(26px)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.js .rise.pre{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top" aria-label="Zedapex home"><img src="assets/zedapex-mark-white.png" alt="" width="34" height="34"><b>ZEDAPEX</b></a>
+    <nav class="links" id="links"><a href="#story">Results</a><a href="#agency">Agency</a><a href="#products">Products</a><a href="#voosquare">VooSquare</a><a href="#connect">Connect</a></nav>
+    <a class="btn solid" href="#connect">Work with us</a>
+    <button class="menu-b" id="menuB" aria-label="Open menu" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg></button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" style="padding:0">
+    <canvas id="flow" aria-hidden="true"></canvas>
+    <div class="wrap hero-in">
+      <div class="seal" aria-hidden="true">
+        <svg viewBox="0 0 100 100"><defs><path id="c" d="M50 50m-42 0a42 42 0 1 1 84 0a42 42 0 1 1-84 0"/></defs><text><textPath href="#c">PERFORMANCE · MEDIA BUYING · IGAMING · FINANCE · TOOLS ·</textPath></text></svg>
+        <img src="assets/zedapex-mark-white.png" alt="">
+      </div>
+      <span class="award"><svg viewBox="0 0 48 48" fill="none" stroke="#f4f4f2" stroke-width="1.8" stroke-linecap="round"><path d="M16 38c-6-4-9-10-8-18M32 38c6-4 9-10 8-18"/><path d="M10 30c2 0 4-1 5-3M8 23c2 0 4-1 4-3M38 30c-2 0-4-1-5-3M40 23c-2 0-4-1-4-3"/><path d="M24 13l2.6 5.3 5.8.8-4.2 4.1 1 5.8L24 26.3 18.8 29l1-5.8-4.2-4.1 5.8-.8z" fill="#f4f4f2" stroke="none"/></svg>Award-winning traffic</span>
+      <h1>We buy traffic <br>that <span class="swap" id="swap"><span class="on">pays.</span><span>deposits.</span><span>scales.</span><span>converts.</span></span></h1>
+      <p class="lead">A <b>performance marketing agency</b> and media buying team for <b>iGaming</b> and <b>finance</b>. Thousands of FTDs every month, new geos broken open, and an affiliate network that multiplies the volume.</p>
+      <div class="toolrow" aria-label="Tools we build for media buyers">
+        <span class="mono">We also build tools for media buyers</span>
+        <div class="toolchips" id="toolchips"></div>
+      </div>
+      <div class="cta">
+        <a class="btn solid" href="#connect">Work with us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn ghost" href="#story">See the case study</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="marq" aria-hidden="true"><div class="marq-in" id="marq">
+    <span>Meta ads<i></i></span><span>TikTok ads<i></i></span><span>Snapchat ads<i></i></span><span>Telegram funnels<i></i></span><span>Sports betting<i></i></span><span>Casino<i></i></span><span>Forex<i></i></span><span>Crypto<i></i></span><span>Server-side tracking<i></i></span><span>Creatives<i></i></span>
+  </div></div>
+
+  <div class="proof"><div class="wrap proof-in">
+    <div><b>Thousands</b><span class="mono">Of FTDs every month</span></div>
+    <div><b>Award</b><span class="mono">Winning traffic quality</span></div>
+    <div><b>New geos</b><span class="mono">Broken open for our partners</span></div>
+    <div><b>iGaming</b><span class="mono">&amp; finance specialists on Meta, TikTok and Snapchat</span></div>
+  </div></div>
+
+  <section id="story">
+    <div class="wrap">
+      <div class="head rise">
+        <span class="mono">Case study · one advertiser · one geo · 14 months</span>
+        <h2>One geo.<br><span class="outline">45,000+ FTDs.</span></h2>
+        <p>An advertiser brought Zedapex in to run their growth. Our media buyers took over the campaigns and delivered. Then we brought big affiliates from our network onto their offer, and the numbers multiplied.</p>
+      </div>
+      <div class="story">
+        <div class="chart rise" id="chart">
+          <div class="chart-top">
+            <div class="legend"><span><i></i>Our own team</span><span><i class="f"></i>With our affiliate network</span></div>
+            <button class="replay" id="replay" type="button">↻ Replay</button>
+          </div>
+          <svg viewBox="0 0 640 300" role="img" aria-label="First deposits for one advertiser in one geo over 14 months: our own team reached 20,000+, and with the affiliates we brought in the total reached 45,000+">
+            <defs><linearGradient id="ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3ddc84" stop-opacity=".18"/><stop offset="1" stop-color="#3ddc84" stop-opacity="0"/></linearGradient></defs>
+            <g class="grid"><line x1="40" y1="40" x2="620" y2="40"/><line x1="40" y1="110" x2="620" y2="110"/><line x1="40" y1="180" x2="620" y2="180"/><line x1="40" y1="250" x2="620" y2="250"/></g>
+            <g class="ax"><text x="40" y="276">Before</text><text x="128" y="276">Month 1</text><text x="330" y="276">Month 7</text><text x="566" y="276">Month 14</text></g>
+            <path class="before" d="M40 246 L120 244"/>
+            <g class="marker"><line x1="120" y1="28" x2="120" y2="252"/><text x="128" y="36">ZEDAPEX IN</text></g>
+            <g class="marker" id="affMark" style="opacity:0;transition:opacity .5s"><line x1="243" y1="60" x2="243" y2="252"/><text x="251" y="68">AFFILIATES IN</text></g>
+            <path class="area" id="area" d=""/>
+            <path class="ftd" id="ftd" d=""/>
+            <path class="reg" id="reg" d=""/>
+            <circle class="dot" id="dFtd" r="6" stroke="#3ddc84" cx="120" cy="244"/>
+            <circle class="dot" id="dReg" r="6" stroke="#f4f4f2" cx="120" cy="244"/>
+            <g class="mile" id="m1"><rect x="132" y="206" width="132" height="26" rx="13"/><text x="145" y="223">Our team live</text></g>
+            <g class="mile" id="m2"><rect x="300" y="170" width="160" height="26" rx="13"/><text x="313" y="187">Affiliates onboarded</text></g>
+            <g class="mile" id="m3"><rect x="372" y="112" width="132" height="26" rx="13"/><text x="385" y="129">Network scaling</text></g>
+            <g class="mile" id="m4"><rect x="470" y="40" width="120" height="26" rx="13"/><text x="483" y="57">45,000+ FTDs</text></g>
+          </svg>
+          <div class="powers">
+            <div class="pw"><span class="mono">Our own team</span><b id="cTeamF">20,000+</b><span>FTDs</span><b class="sm" id="cTeamR">170,000+</b><span>Registrations</span></div>
+            <div class="pw net"><span class="mono">With our affiliate network</span><b id="cNetF">45,000+</b><span>FTDs</span><b class="sm" id="cNetR">300,000+</b><span>Registered users</span></div>
+          </div>
+          <p class="note">One advertiser, one geo, 14 months. Totals are real; the curves show the shape of the climb.</p>
+        </div>
+        <div class="beats rise" id="beats">
+          <div class="beat" data-at="0"><span class="n">01</span><div><b>They brought us in</b><p>One advertiser. One geo. Our media buyers took over the campaigns.</p></div></div>
+          <div class="beat" data-at=".3"><span class="n">02</span><div><b>Our team delivered</b><p>20,000+ FTDs and 170,000+ registrations from our own buying.</p></div></div>
+          <div class="beat" data-at=".55"><span class="n">03</span><div><b>We brought big affiliates</b><p>We put the strongest affiliates from our network on their offer.</p></div></div>
+          <div class="beat" data-at=".85"><span class="n">04</span><div><b>The network multiplied it</b><p>45,000+ FTDs and 300,000+ registered users combined, from a single geo.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="flowband" id="flowband"><div class="wrap">
+    <div class="fb"><span class="mono">Before</span><b>Paying for clicks</b><p>Traffic you can't trust. Leads that never deposit.</p><div class="meter" style="--w:22%"><i></i></div></div>
+    <div class="fb"><span class="mono">With Zedapex</span><b>Paying for people</b><p>Real registrations, tracked to the source and fed back to the ads.</p><div class="meter" style="--w:60%"><i></i></div></div>
+    <div class="fb"><span class="mono">At scale</span><b>Money gets easier</b><p>Deposits at a steady cost, so you can push budget with confidence.</p><div class="meter" style="--w:100%"><i></i></div></div>
+  </div></div>
+
+  <section id="agency">
+    <div class="wrap">
+      <div class="head rise">
+        <span class="mono">Performance marketing</span>
+        <h2>Your growth team.<br><span class="outline">Plus an army.</span></h2>
+        <p>We plan, buy and scale paid traffic on Meta, TikTok and Snapchat, build the creatives and funnels, open new geos, and put our affiliate network on your offer.</p>
+      </div>
+      <div class="verts rise">
+        <article class="vert"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8.5" cy="8.5" r="1.3" fill="currentColor"/><circle cx="15.5" cy="15.5" r="1.3" fill="currentColor"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/></svg></span><h3>iGaming</h3><p>Sportsbooks and casinos in licensed markets. Depositing players who stay, not one-time bonus hunters.</p><div class="tags"><span>Sports betting</span><span>Casino</span><span>Crash games</span><span>18+ only</span></div></article>
+        <article class="vert"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><h3>Finance</h3><p>Brokers, exchanges and fintech apps. Funnels that turn clicks into verified, depositing traders.</p><div class="tags"><span>Forex &amp; CFDs</span><span>Crypto</span><span>Prop firms</span><span>Fintech</span></div></article>
+        <article class="vert"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18l-7 8v6l-4 2v-8z"/></svg></span><h3>Full funnel</h3><p>Creatives, Telegram funnels, landing pages and server-side tracking. One team, from the first ad to the last deposit.</p><div class="tags"><span>Creatives</span><span>Telegram</span><span>CAPI</span><span>Postbacks</span></div></article>
+      </div>
+      <div class="steps" id="steps">
+        <div class="step"><span class="mono">Week 1</span><b>Audit</b><p>Offer, geo, numbers. We find where the money leaks.</p></div>
+        <div class="step"><span class="mono">Week 1–2</span><b>Build</b><p>Creatives, funnel and tracking, wired before a cent is spent.</p></div>
+        <div class="step"><span class="mono">Week 2–3</span><b>Launch</b><p>Fast tests across platforms. Losers cut, winners kept.</p></div>
+        <div class="step"><span class="mono">Ongoing</span><b>Scale</b><p>More budget, more geos, the same cost per deposit.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="state">
+    <p class="rise"><span>Traffic is</span><span>capital.</span></p>
+    <small class="mono">We don't spend on ads. We invest in leads.</small>
+  </div>
+
+  <section id="products">
+    <div class="wrap">
+      <div class="head rise">
+        <span class="mono">Products</span>
+        <h2>Built by media buyers.<br><span class="outline">For media buyers.</span></h2>
+        <p>We built the tools we needed to run our own campaigns. Now they're yours.</p>
+      </div>
+      <div class="prods" id="prods"></div>
+    </div>
+  </section>
+
+  <section id="voosquare" style="border-top:1px solid var(--line)">
+    <div class="wrap vs">
+      <div class="rise">
+        <span class="mono">VooSquare · the hub</span>
+        <h2 style="margin-top:14px">One hub.<br><span class="outline">Hungry buyers.</span></h2>
+        <ul>
+          <li><i></i><span><b>Every tool, one account.</b> Sign in once and open any Voo app.</span></li>
+          <li><i></i><span><b>A hub of buyers hungry for traffic.</b> Media buyers who share what works, find deals and run offers together.</span></li>
+          <li><i></i><span><b>One referral link.</b> Earn across every tool.</span></li>
+        </ul>
+        <a class="btn solid" id="vsLink" href="https://voosquare.com" target="_blank" rel="noopener">Join the community <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="orbit" aria-hidden="true">
+        <div class="ring"></div><div class="ring r2"></div>
+        <div class="sat" id="sat1"></div><div class="sat r2" id="sat2"></div>
+        <div class="core"><img src="assets/voosquare.svg" alt=""></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="connect" style="border-top:1px solid var(--line)">
+    <div class="wrap conn">
+      <div class="rise">
+        <span class="mono">Connect</span>
+        <h2 style="margin-top:14px">Let's make<br><span class="outline">noise.</span></h2>
+        <p style="color:var(--dim);max-width:440px;margin:18px 0 0">Brands that want to scale. Affiliates that want deals. Tell us what you're building.</p>
+        <div class="routes">
+          <a class="route" id="tgLink" href="#" target="_blank" rel="noopener"><span><b>Telegram</b><small id="tgText"></small></span><span class="r"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.2 2.9 11.4c-1.3.5-1.2 1.3-.2 1.6l4.8 1.5 1.8 5.6c.2.7.5.8 1 .3l2.6-2.4 5 3.7c.9.5 1.6.2 1.8-.9L22.8 5.6c.3-1.3-.5-1.9-1.3-1.4zM9.2 14.1l9-6.6-7.1 7.6-.3 3.3z"/></svg></span></a>
+          <div class="route"><span><b>Email</b><small id="mailText" style="user-select:all"></small></span><button type="button" class="btn ghost r" id="copyMail" style="padding:8px 14px;font-size:13px">Copy</button></div>
+        </div>
+      </div>
+      <form id="form" class="rise" novalidate>
+        <div class="seg" role="radiogroup" aria-label="I am">
+          <input type="radio" name="who" id="w1" value="Advertiser" checked><label for="w1">Advertiser</label>
+          <input type="radio" name="who" id="w2" value="Affiliate"><label for="w2">Affiliate</label>
+          <input type="radio" name="who" id="w3" value="Media buyer"><label for="w3">Media buyer</label>
+        </div>
+        <div class="row">
+          <label for="fn">Name<input id="fn" name="name" autocomplete="name"></label>
+          <label for="fc">Telegram or email<input id="fc" name="contact"></label>
+        </div>
+        <div class="row">
+          <label for="fv">Vertical<select id="fv" name="vertical"><option>iGaming</option><option>Finance / trading</option><option>Crypto</option><option>Other</option></select></label>
+          <label for="fb">Monthly volume<select id="fb" name="budget"><option>Under $10k</option><option>$10k–50k</option><option>$50k–200k</option><option>$200k+</option><option>Just the tools</option></select></label>
+        </div>
+        <label for="fm">Message<textarea id="fm" name="message" placeholder="Offer, geos, goals…"></textarea></label>
+        <button class="btn solid" type="submit">Send <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <div class="ok" id="ok" role="status"></div>
+        <p class="note">We reply within one business day.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <a class="brand" href="#top"><img src="assets/zedapex-mark-white.png" alt="" width="34" height="34"><b>ZEDAPEX</b></a>
+      <nav id="footNav"></nav>
+    </div>
+    <div class="giant" aria-hidden="true">Zedapex</div>
+    <div class="foot"><span class="mono">© <span id="yr">2026</span> Zedapex</span><span class="mono">Ads for regulated products run only where they're allowed. 18+.</span></div>
+  </div>
+</footer>
+
+<script>
+/* ===== Edit these: links and contacts ===== */
+const CONFIG = {
+  email: 'hello@zedapex.com',
+  telegram: 'zedapex',            // Telegram username, without @
+  voosquare: 'https://voosquare.com',
+  products: [
+    { name:'Joinvoo',  line:'Track every lead. Kill every fake. Telegram joins and deposits, sent back to your ads.', url:'https://joinvoo.com',  status:'live', logo:'assets/joinvoo.svg',  glow:'#5b3df5' },
+    { name:'Replyvoo', line:'AI Closers that answer every chat in seconds and close the sale.',                   url:'https://replyvoo.com', status:'live', logo:'assets/replyvoo.svg', glow:'#f2c94c' },
+    { name:'Castvoo',  line:'Broadcasts, drips and AI that turn Telegram into a sales machine.',                  url:'https://castvoo.com',  status:'live', logo:'assets/castvoo.svg',  glow:'#3b6cf6' },
+    { name:'Vooads',   line:'Realistic UGC ads, 50+ a week, for any product.',                                   url:'https://vooads.com',   status:'live', logo:'assets/vooads.svg',   glow:'#ee5a2e' },
+    { name:'Gatevoo',  line:'Crypto checkout. Open the gate, get paid in a minute.',                              url:'https://gatevoo.com',  status:'soon', logo:'assets/gatevoo.svg',  glow:'#ffffff' },
+    { name:'Affleego', line:'Top affiliate deals in one place.',                                                  url:'https://affleego.com', status:'live', logo:'assets/affleego.svg', glow:'#f7d65a' },
+    { name:'Landvoo',  line:'Landing pages that convert, built in minutes.',                                      url:'',                     status:'soon', logo:'assets/landvoo.svg',  glow:'#e06aa0' },
+  ],
+};
+/* ========================================== */
+
+document.documentElement.classList.add('js');
+const $ = (s) => document.querySelector(s);
+const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+const label = { live:'Live', new:'New', soon:'Coming soon' };
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// products
+$('#prods').innerHTML = CONFIG.products.map((p) => {
+  const tag = p.url ? 'a' : 'div', href = p.url ? ` href="${p.url}" target="_blank" rel="noopener"` : '';
+  const go = p.url ? `${p.status === 'soon' ? 'Join the waitlist' : 'Visit ' + p.name} ${arrow}` : 'On the way';
+  return `<${tag} class="prod rise"${href} style="--glow:${p.glow}"><div class="top"><img src="${p.logo}" alt="${p.name} logo"><span class="badge ${p.status === 'live' ? 'live' : ''}">${label[p.status]}</span></div><h3>${p.name}</h3><p>${p.line}</p><span class="go">${go}</span></${tag}>`;
+}).join('') + `<a class="prod hub rise" href="${CONFIG.voosquare}" target="_blank" rel="noopener"><div class="top"><img src="assets/voosquare.svg" alt="VooSquare logo"><span class="badge">The hub</span></div><h3>VooSquare</h3><p>One login for every tool, and the community where media buyers meet.</p><span class="go">Open VooSquare ${arrow}</span></a>`;
+$('#footNav').innerHTML = ['<a href="#story">Results</a>', '<a href="#agency">Agency</a>', ...CONFIG.products.filter((p) => p.url).map((p) => `<a href="${p.url}" target="_blank" rel="noopener">${p.name}</a>`), `<a href="${CONFIG.voosquare}" target="_blank" rel="noopener">VooSquare</a>`, '<a href="#connect">Connect</a>'].join('');
+
+// hero tool chips: every product, visible without scrolling
+document.getElementById('toolchips').innerHTML = [...CONFIG.products, { name:'VooSquare', url: CONFIG.voosquare, logo:'assets/voosquare.svg' }]
+  .map((p, i) => `<a href="${p.url || '#products'}"${p.url ? ' target="_blank" rel="noopener"' : ''} style="animation-delay:${.15 + i * .08}s"><img src="${p.logo}" alt="">${p.name}</a>`).join('');
+
+// orbit
+const place = (el, list) => { el.innerHTML = list.map((p, i) => { const a = (i / list.length) * Math.PI * 2 - Math.PI / 2; return `<img src="${p.logo}" alt="" style="left:${50 + 50 * Math.cos(a)}%;top:${50 + 50 * Math.sin(a)}%">`; }).join(''); };
+place($('#sat1'), CONFIG.products.slice(0, 4)); place($('#sat2'), CONFIG.products.slice(4));
+
+// contacts
+$('#vsLink').href = CONFIG.voosquare;
+$('#tgLink').href = 'https://t.me/' + CONFIG.telegram; $('#tgText').textContent = '@' + CONFIG.telegram;
+$('#mailText').textContent = CONFIG.email;
+$('#copyMail').onclick = async (e) => { const b = e.currentTarget; try { await navigator.clipboard.writeText(CONFIG.email); b.textContent = 'Copied'; } catch { const r = document.createRange(); r.selectNodeContents($('#mailText')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Selected'; } setTimeout(() => (b.textContent = 'Copy'), 1800); };
+$('#yr').textContent = new Date().getFullYear();
+
+// form → opens the visitor's email app with the message filled in
+$('#form').addEventListener('submit', (e) => {
+  e.preventDefault(); const f = e.target, ok = $('#ok');
+  if (!f.name.value.trim() || !f.contact.value.trim()) { ok.textContent = 'Add your name and a Telegram or email so we can reply.'; ok.classList.add('show'); return; }
+  const who = f.querySelector('[name=who]:checked').value;
+  const body = `Name: ${f.name.value}\nContact: ${f.contact.value}\nI am: ${who}\nVertical: ${f.vertical.value}\nMonthly volume: ${f.budget.value}\n\n${f.message.value}`;
+  location.href = `mailto:${CONFIG.email}?subject=${encodeURIComponent('Zedapex · ' + who + ' · ' + f.name.value)}&body=${encodeURIComponent(body)}`;
+  ok.innerHTML = `Your email app should open with the message ready. If it doesn't, write to <b>${CONFIG.email}</b> or message <b>@${CONFIG.telegram}</b> on Telegram.`; ok.classList.add('show');
+});
+
+// nav
+const nav = $('#nav');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 10), { passive: true });
+$('#menuB').onclick = () => { const o = nav.classList.toggle('open'); $('#menuB').setAttribute('aria-expanded', o); };
+$('#links').onclick = () => nav.classList.remove('open');
+
+// marquee loop
+const mq = $('#marq'); mq.innerHTML += mq.innerHTML;
+
+// headline word swap
+{ const sw = $('#swap'), w = [...sw.children]; let i = 0;
+  const fit = (el) => { sw.style.width = el.offsetWidth + 'px'; };
+  const refit = () => fit(w[i]); refit(); addEventListener('resize', refit);
+  if (document.fonts) document.fonts.ready.then(refit);
+  if (!reduce) setInterval(() => { const cur = w[i], nx = w[(i + 1) % w.length]; fit(nx); cur.classList.remove('on'); cur.classList.add('out'); nx.classList.remove('out'); nx.classList.add('on'); setTimeout(() => cur.classList.remove('out'), 750); i = (i + 1) % w.length; }, 2400); }
+
+/* partner story: the curve draws itself, counters climb to the real totals, milestones and beats light up */
+const story = (() => {
+  const X0 = 120, X1 = 610, Y0 = 244, TEAM_TOP = 154, NET_TOP = 52, AFF = .25;
+  const team = (u) => Y0 - (Y0 - TEAM_TOP) * (Math.pow(u, 1.7) * .85 + u * .15);
+  const net = (u) => { const t = team(u); if (u <= AFF) return t; const k = (u - AFF) / (1 - AFF); return t - (team(u) - (Y0 - (Y0 - NET_TOP) * (Math.pow(u, 1.7) * .85 + u * .15))) * (k * k * (3 - 2 * k)); };
+  const path = (fn, upTo) => { let d = ''; const n = 70; for (let i = 0; i <= n; i++) { const u = (i / n) * upTo, x = X0 + (X1 - X0) * u; d += (i ? 'L' : 'M') + x.toFixed(1) + ' ' + fn(u).toFixed(1); } return d; };
+  const E = (id) => document.getElementById(id);
+  const els = { team: E('reg'), net: E('ftd'), area: E('area'), dT: E('dReg'), dN: E('dFtd'), tF: E('cTeamF'), tR: E('cTeamR'), nF: E('cNetF'), nR: E('cNetR'), aff: E('affMark') };
+  const miles = [['m1', .08], ['m2', .32], ['m3', .6], ['m4', .92]].map(([s, at]) => [E(s), at]);
+  const beats = [...document.querySelectorAll('.beat')];
+  const fmt = (n, done) => Math.round(n).toLocaleString('en-US') + (done ? '+' : '');
+  const render = (p) => {
+    const e = 1 - Math.pow(1 - p, 2), done = p >= 1;
+    els.team.setAttribute('d', path(team, e)); els.net.setAttribute('d', path(net, e));
+    const x = X0 + (X1 - X0) * e;
+    els.area.setAttribute('d', path(net, e) + ` L${x.toFixed(1)} ${Y0} L${X0} ${Y0} Z`);
+    els.dT.setAttribute('cx', x); els.dT.setAttribute('cy', team(e)); els.dN.setAttribute('cx', x); els.dN.setAttribute('cy', net(e));
+    const g = Math.pow(e, 1.7) * .85 + e * .15, k = e <= AFF ? 0 : (e - AFF) / (1 - AFF), gn = k * k * (3 - 2 * k);
+    els.tF.textContent = fmt(20000 * g, done); els.tR.textContent = fmt(170000 * g, done);
+    els.nF.textContent = fmt(20000 * g + 25000 * g * gn, done); els.nR.textContent = fmt(170000 * g + 130000 * g * gn, done);
+    els.aff.style.opacity = e >= AFF ? 1 : 0;
+    miles.forEach(([m, at]) => m.classList.toggle('on', e >= at));
+    beats.forEach((b) => b.classList.toggle('on', p >= +b.dataset.at));
+  };
+  let raf;
+  const play = () => { cancelAnimationFrame(raf); if (reduce) return render(1); const t0 = performance.now(), d = 6000;
+    const step = (t) => { const p = Math.min(1, (t - t0) / d); render(p); if (p < 1) raf = requestAnimationFrame(step); }; raf = requestAnimationFrame(step); };
+  render(1);
+  E('replay').onclick = play;
+  return { play };
+})();
+
+// reveal on scroll + triggers
+const io = new IntersectionObserver((es) => es.forEach((x) => { if (!x.isIntersecting) return; const el = x.target;
+  el.classList.remove('pre'); el.classList.add('go'); if (el.id === 'chart') story.play(); io.unobserve(el); }), { threshold: .25 });
+document.querySelectorAll('.rise, #steps, #flowband').forEach((el) => { if (el.classList.contains('rise') && el.getBoundingClientRect().top > innerHeight) el.classList.add('pre'); io.observe(el); });
+
+// hero canvas: raw traffic flows in from the left, passes the filter in the centre, quality leaves on the right
+(() => {
+  const c = $('#flow'), x = c.getContext('2d'); let W, H, D, P = [];
+  const size = () => { D = Math.min(devicePixelRatio || 1, 2); W = c.clientWidth; H = c.clientHeight; c.width = W * D; c.height = H * D; x.setTransform(D, 0, 0, D, 0, 0); };
+  const spawn = () => ({ t: 0, sp: .0016 + Math.random() * .0028, y0: Math.random(), keep: Math.random() < .35, r: .6 + Math.random() * 1.4, lane: Math.random() * 2 - 1 });
+  size(); addEventListener('resize', size);
+  const N = innerWidth < 600 ? 110 : 240; for (let i = 0; i < N; i++) { const p = spawn(); p.t = Math.random(); P.push(p); }
+  const pos = (p) => { const cx = W / 2, cy = H * .3; const yIn = p.y0 * H; const u = p.t;
+    if (u < .5) { const k = u / .5, e = k * k * (3 - 2 * k); return [k * cx, yIn + (cy - yIn) * e]; }
+    const k = (u - .5) / .5, e = k * k; return [cx + k * (W - cx), cy + p.lane * H * .32 * e]; };
+  const draw = () => { x.clearRect(0, 0, W, H);
+    for (const p of P) { p.t += p.sp; if (p.t >= 1 || (!p.keep && p.t > .5)) Object.assign(p, spawn());
+      const [px, py] = pos(p), out = p.t > .5;
+      x.globalAlpha = out ? .95 : .28 + p.t * .5; x.fillStyle = out && p.lane > .55 ? '#3ddc84' : '#f4f4f2';
+      x.beginPath(); x.arc(px, py, out ? p.r + .8 : p.r, 0, 6.283); x.fill();
+      if (out) { x.globalAlpha = .12; x.beginPath(); x.arc(px, py, p.r + 5, 0, 6.283); x.fill(); } }
+    if (!reduce) requestAnimationFrame(draw); };
+  draw();
+})();
+</script>
+</body>
+</html>
